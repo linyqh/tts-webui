@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 from utils import is_valid_url
 
-base_url = os.getenv('OPENVOICE_URL', None)
+base_url = st.secrets['url']['openvoice-api']
 
 st.set_page_config(
     page_title="OpenVoice TTS",

@@ -4,7 +4,7 @@ import io
 import os
 from utils import is_valid_url
 
-base_url = os.getenv('COQUI_BASE_URL', None)
+base_url = st.secrets['url']['coqui-api']
 
 st.set_page_config(
     page_title="Coqui TTS",
