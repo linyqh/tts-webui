@@ -12,7 +12,7 @@ st.set_page_config(
 )
 # 判断url是否有效
 if not is_valid_url(base_url):
-    st.error(f"OpenVoice TTS 服务地址无效！地址为：{base_url if base_url else '未设置'}")
+    st.error(f"Coqui TTS 服务地址无效！地址为：{base_url if base_url else '未设置'}")
 
 st.write("# 欢迎使用 Coqui TTS !")
 
