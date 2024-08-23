@@ -1,15 +1,20 @@
 import streamlit as st
 import requests
 import io
+import os
+from utils import is_valid_url
 
-base_url = "https://06kz49s8taw1a6-8080.proxy.runpod.net"
-# base_url = "http://127.0.0.1:5002"
+base_url = os.getenv('COQUI_BASE_URL', None)
 
 st.set_page_config(
     page_title="Coqui TTS",
     page_icon="👋",
 )
-st.write("# 欢迎使用 Coqui TTS ! （暂停服务）")
+# 判断url是否有效
+if not is_valid_url(base_url):
+    st.error(f"OpenVoice TTS 服务地址无效！地址为：{base_url if base_url else '未设置'}")
+
+st.write("# 欢迎使用 Coqui TTS !")
 
 st.write("模型只需加载一次")
 if st.button("加载模型", key="auto_generate_script"):

@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 from utils import is_valid_url
 
-base_url = os.getenv('OPENVOICE_URL', 'http://127.0.0.1:5000')
+base_url = os.getenv('OPENVOICE_URL', None)
 
 st.set_page_config(
     page_title="OpenVoice TTS",
@@ -11,7 +11,7 @@ st.set_page_config(
 )
 # 判断url是否有效
 if not is_valid_url(base_url):
-    st.error(f"OpenVoice TTS 服务地址无效！地址为：{base_url}")
+    st.error(f"OpenVoice TTS 服务地址无效！地址为：{base_url if base_url else '未设置'}")
 
 st.write("# 欢迎使用 OpenVoice TTS ! 🔥")
 
